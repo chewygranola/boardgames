@@ -1,25 +1,20 @@
 <h1>Listing games</h1>
 
-<table>
-  <tr>
-    <th>Game type</th>
-    <th>Game date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div><%= link_to 'New Game', new_game_path %></div>
 
+<br/>
 <% @games.each do |game| %>
-  <tr>
-    <td><%= game.game_type_id %></td>
-    <td><%= game.game_date %></td>
-    <td><%= link_to 'Show', game %></td>
-    <td><%= link_to 'Edit', edit_game_path(game) %></td>
-    <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div class="game">  
+   <div><%= game.game_type.game_type_name %></div>
+   <div><%= game.game_date %></div>
+   <%game.game_scores.each do |game_score| %>
+      <div><%= game_score.player.name %>: <%= game_score.score %></div>
+   <% end %>
+   <%= link_to 'Show', game %>
+   <%= link_to 'Edit', edit_game_path(game) %>
+   <%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %>
+</div>
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New Game', new_game_path %>

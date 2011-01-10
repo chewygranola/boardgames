@@ -19,6 +19,11 @@
     <%= f.label :game_date %><br />
     <%= f.date_select :game_date %>
   </div>
+
+  <% for i in (1..6) %>
+    <div>This is <%= i %></div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
