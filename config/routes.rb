@@ -1,4 +1,10 @@
 Boardgames::Application.routes.draw do
+  resources :game_scores
+
+  resources :game_types
+
+  resources :games
+
   resources :players
 
   # The priority is based upon order of creation:
